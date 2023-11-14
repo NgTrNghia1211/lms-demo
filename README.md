@@ -41,4 +41,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - `LogoIpsum` - Provide examples of logo in svg file
 
-- `UpLoadThing React Next`
+- `UpLoadThing React Next`: a new storage like S3 for media file
