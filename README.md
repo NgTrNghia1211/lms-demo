@@ -43,6 +43,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - `UpLoadThing React Next`: a new storage like S3 for media file
 
-- `React-Quill` -
+- `React-Quill` - rich text editor
 
-- `MUX.com`
+- `MUX.com` - Relate to video data management
+
+- `Tanstack/table`
