@@ -48,3 +48,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `MUX.com` - Relate to video data management
 
 - `Tanstack/table`
+
+- `Query-String`
+
+- `React-icons`
