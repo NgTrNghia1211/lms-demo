@@ -50,7 +50,7 @@ export async function PATCH(
       })
 
       if (existingMuxData) {
-        await Video.Assets.del(existingMuxData.id);
+        await Video.Assets.del(existingMuxData.assetId);
         await db.muxData.delete({
           where: {
             id: existingMuxData.id,
@@ -117,12 +117,12 @@ export async function DELETE(
     if (chapter.videoUrl) {
       const existingMuxData =  await db.muxData.findFirst({
         where: {
-          id: params.chapterId
+          chapterId: params.chapterId
         }
       })
 
       if (existingMuxData) {
-        await Video.Assets.del(existingMuxData.id);
+        await Video.Assets.del(existingMuxData.assetId);
         await db.muxData.delete({
           where: {
             id: existingMuxData.id
