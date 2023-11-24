@@ -42,7 +42,13 @@ const CategoryItem = ({
     // ! Don't know why when router.push working there is only one params 
     // ! While console.log("") the url with 2 params
 
+    if (ct === null) {
+      router.push(`/search`);
+      return;
+    }
+
     router.push(`/search?categoryId=${ct}&title=${currentTitle}`);
+    // router.push(url);
   };
 
   
