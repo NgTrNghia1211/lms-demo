@@ -33,8 +33,6 @@ const ChapterIdPage = async ({
     courseId: params.courseId,
   });
 
-  console.log(attachments);
-
   if (!chapter || !course) {
     return redirect('/');
   }
@@ -101,7 +99,8 @@ const ChapterIdPage = async ({
                 <Separator />
                 <div
                   className="p-4"
-                >{attachments.map((attachment) => (
+                >
+                  {attachments.map((attachment) => (
                   <a 
                     href={attachment.url} target="_blank" key={attachment.id}
                     className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-sm hover:underline"
