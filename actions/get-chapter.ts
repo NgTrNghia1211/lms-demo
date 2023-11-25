@@ -47,13 +47,12 @@ export const getChapter = async ({
     let attachments: Attachment[] = [];
     let nextChapter: Chapter | null = null;
 
-    if (purchase) {
-      attachments = await db.attachment.findMany({
-        where: {
-          courseId: courseId,
-        }
-      })
-    }
+    // TODO: if can implement payment, put it in conditions that purchase available
+    attachments = await db.attachment.findMany({
+      where: {
+        courseId: courseId,
+      }
+    })
 
     if (chapter.isFree || purchase) {
       muxData = await db.muxData.findUnique({

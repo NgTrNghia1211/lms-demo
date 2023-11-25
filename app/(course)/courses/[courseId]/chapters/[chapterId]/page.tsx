@@ -3,6 +3,10 @@ import Banner from "@/components/banner";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import VideoPlayer from "./_components/video-player";
+import CourseEnrollButton from "./_components/course-enroll-button";
+import { Separator } from "@/components/ui/separator";
+import { Preview } from "@/components/preview";
+import { File } from "lucide-react";
 
 const ChapterIdPage = async ({
   params
@@ -29,11 +33,11 @@ const ChapterIdPage = async ({
     courseId: params.courseId,
   });
 
+  console.log(attachments);
+
   if (!chapter || !course) {
     return redirect('/');
   }
-
-  // console.log("chapter: " + chapter.isFree);
 
   const isLocked = !chapter.isFree && !purchase
   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
@@ -68,6 +72,49 @@ const ChapterIdPage = async ({
             isLocked={isLocked}
             completeOnEnd={completeOnEnd}
           />
+        </div>
+
+        <div>
+          <div className="p-4 flex flex-col md:flex-row items-center justify-between">
+            <h2 className="text-2xl font-semibold mb-2">
+              {chapter.title}
+            </h2>
+            {purchase ? (
+              <div>
+                // TODO: Add Course ProgressButton
+              </div>
+            ) : ( 
+              <CourseEnrollButton 
+                courseId={params.courseId}
+                price={course.price!}
+              />
+            )}
+          </div>
+
+          <Separator />
+          <div>
+            <Preview 
+              value={chapter.description!}
+            />
+            {!!attachments.length && (
+              <p>
+                <Separator />
+                <div
+                  className="p-4"
+                >{attachments.map((attachment) => (
+                  <a 
+                    href={attachment.url} target="_blank" key={attachment.id}
+                    className="flex items-center p-3 w-full bg-sky-200 border text-sky-700 rounded-sm hover:underline"
+                  >
+                    <File />
+                    <p className="line-clamp-2">
+                      {attachment.name}
+                    </p>
+                  </a>
+                ))}</div>
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </div>

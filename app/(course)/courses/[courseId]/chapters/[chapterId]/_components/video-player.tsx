@@ -32,8 +32,6 @@ const VideoPlayer = ({
 } : VideoPlayerProps) => {
   const [isReady, setIsReady] = useState(false);
 
-  console.log("playbackid: ", playbackId);
-  
   return (
     <div className="relative aspect-video">
       {!isReady && !isLocked && (
