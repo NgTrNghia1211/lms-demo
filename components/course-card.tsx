@@ -52,13 +52,13 @@ const CourseCard = ({
           </div>
 
           {/* TODO: Consider changes when payment is implement */}
-          <div>
+          {/* <div>
               <CourseProgress 
                 size='sm'
                 value={progress!}
                 variant={progress === 100 ? "success" : "default"}
               />
-            </div>
+            </div> */}
 
           { progress !== null ? (
             <div>
