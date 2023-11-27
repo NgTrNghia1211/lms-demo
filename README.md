@@ -45,7 +45,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - `React-Quill` - rich text editor
 
-- `MUX.com` - Relate to video data management
+- `MUX.com` - Relate to video data management - because the time saved so there is still some bugs related to video playback Id
 
 - `Tanstack/table`
 

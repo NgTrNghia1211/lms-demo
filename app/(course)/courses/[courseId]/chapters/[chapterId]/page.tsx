@@ -7,6 +7,7 @@ import CourseEnrollButton from "./_components/course-enroll-button";
 import { Separator } from "@/components/ui/separator";
 import { Preview } from "@/components/preview";
 import { File } from "lucide-react";
+import CourseProgressButton from "./_components/course-progress-button";
 
 const ChapterIdPage = async ({
   params
@@ -36,6 +37,8 @@ const ChapterIdPage = async ({
   if (!chapter || !course) {
     return redirect('/');
   }
+
+  // console.log("Next chapter: ", nextChapter?.id);
 
   const isLocked = !chapter.isFree && !purchase
   const completeOnEnd = !!purchase && !userProgress?.isCompleted;
@@ -77,14 +80,20 @@ const ChapterIdPage = async ({
             <h2 className="text-2xl font-semibold mb-2">
               {chapter.title}
             </h2>
-            {purchase ? (
+            {/* condition must be refactor when purchase implemented */}
+            {true ? (
               <div>
-                // TODO: Add Course ProgressButton
+                <CourseProgressButton 
+                  chapterId={params.chapterId}
+                  courseId={params.courseId}
+                  nextChapterId={nextChapter?.id}
+                  isCompleted={!!userProgress?.isCompleted}
+                />
               </div>
             ) : ( 
               <CourseEnrollButton 
                 courseId={params.courseId}
-                price={course.price!}
+                price={course!.price!}
               />
             )}
           </div>
